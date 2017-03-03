@@ -5,9 +5,15 @@ if (!isset($argv[1])) {
 }
 
 $filepath = $argv[1];
-$contents = explode("\n", file_get_contents($filepath));
+$contents = @file_get_contents($filepath);
+if (!$contents) {
+  echo "Error reading file.\n";
+  exit(1);
+}
+
+$lines = explode("\n", $contents);
 $ages = [];
-foreach ($contents as $line) {
+foreach ($lines as $line) {
   $age = explode(",", $line)[1];
   if (!isset($ages[$age])) {
     $ages[$age] = 0;
