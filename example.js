@@ -16,13 +16,13 @@ var contents = fs.readFileSync(filename, 'utf8');
 // split on the new line
 lines = contents.split('\n');
 
-lines.map(function(line) {
+lines.forEach(function(line) {
   result = line.split(',');
   var age = result[1];
   ages[age] = ages[age] ? ages[age] + 1 : 1;
 });
 
-Object.keys(ages).map(function(age) {
+Object.keys(ages).forEach(function(age) {
   console.log(age + ',' + ages[age]);
 });
 
