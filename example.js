@@ -1,5 +1,6 @@
-const filename = process.argv[2];
 const fs = require('fs');
+
+const filename = process.argv[2];
 
 // if no file provided then don't proceed
 if (!filename) {
